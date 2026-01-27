@@ -3,985 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cơ cấu xã hội & Liên minh giai cấp trong thời kỳ quá độ lên CNXH ở Việt Nam</title>
-    <meta name="description" content="Tìm hiểu về cơ cấu xã hội - giai cấp và liên minh giai cấp trong thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Cơ cấu xã hội & Liên minh giai cấp | CNXH Việt Nam</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        /* ===== CSS VARIABLES ===== */
         :root {
-            --primary-red: #DA251C;
-            --primary-red-dark: #B01E17;
-            --primary-red-light: rgba(218, 37, 28, 0.1);
-            --primary-yellow: #FFFF00;
-            --primary-yellow-muted: #FFD700;
-            --primary-yellow-soft: #FFF9C4;
-            --bg-white: #FFFFFF;
-            --bg-light: #F8F9FA;
-            --bg-gray: #F0F2F5;
-            --text-dark: #1A1A2E;
-            --text-gray: #4A4A68;
-            --text-light: #6B7280;
-            --border-color: #E5E7EB;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
-            --shadow-color: 0 4px 20px rgba(218, 37, 28, 0.15);
-            --transition-fast: 0.2s ease;
-            --transition-normal: 0.3s ease;
-            --transition-slow: 0.5s ease;
-            --border-radius-sm: 8px;
-            --border-radius-md: 12px;
-            --border-radius-lg: 20px;
-            --max-width: 1200px;
+            --red: #DA251C; --red-dark: #B01E17; --yellow: #FFD700;
+            --dark: #1A1A2E; --gray: #4A4A68; --light: #F8F9FA;
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Roboto', sans-serif; color: var(--dark); overflow-x: hidden; }
 
-        /* ===== RESET & BASE ===== */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            font-size: 16px;
-            line-height: 1.7;
-            color: var(--text-dark);
-            background-color: var(--bg-white);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            line-height: 1.3;
-            font-weight: 700;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* ===== UTILITY CLASSES ===== */
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 16px;
-            color: var(--text-dark);
-            position: relative;
-        }
-
-        .section-title span {
-            color: var(--primary-red);
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 48px;
-        }
-
-        /* ===== HEADER / HERO SECTION ===== */
+        /* ===== HERO WITH PARTICLES ===== */
         .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 50%, #8B0000 100%);
-            overflow: hidden;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, var(--red) 0%, #8B0000 100%);
+            position: relative; overflow: hidden;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 0, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.1) 0%, transparent 70%);
-            pointer-events: none;
+        .particles { position: absolute; inset: 0; }
+        .particle {
+            position: absolute; width: 10px; height: 10px;
+            background: var(--yellow); border-radius: 50%; opacity: 0.6;
+            animation: float 15s infinite ease-in-out;
         }
-
-        .hero-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(45deg, rgba(255,255,255,0.03) 25%, transparent 25%),
-                linear-gradient(-45deg, rgba(255,255,255,0.03) 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.03) 75%),
-                linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.03) 75%);
-            background-size: 60px 60px;
-            pointer-events: none;
-            animation: patternMove 20s linear infinite;
+        .particle:nth-child(odd) { background: rgba(255,255,255,0.3); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
-
-        @keyframes patternMove {
-            0% { transform: translateX(0) translateY(0); }
-            100% { transform: translateX(60px) translateY(60px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 40px 24px;
-            max-width: 900px;
-        }
-
+        .hero-content { position: relative; z-index: 2; text-align: center; padding: 40px; max-width: 900px; }
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--primary-yellow-muted);
-            margin-bottom: 24px;
-            animation: fadeInDown 0.8s ease;
+            display: inline-block; padding: 10px 24px; background: rgba(255,215,0,0.2);
+            border: 2px solid var(--yellow); border-radius: 50px; color: var(--yellow);
+            font-weight: 600; margin-bottom: 24px; animation: pulse 2s infinite;
         }
-
-        .hero-badge::before {
-            content: '★';
-            font-size: 1rem;
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,215,0,0.4); } 50% { box-shadow: 0 0 20px 10px rgba(255,215,0,0); } }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem); color: #fff; margin-bottom: 20px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
-
-        .hero-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 900;
-            color: var(--bg-white);
-            margin-bottom: 24px;
-            text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 0.8s ease 0.2s both;
+        .hero h1 span { color: var(--yellow); position: relative; }
+        .hero h1 span::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 4px;
+            background: var(--yellow); transform: scaleX(0); animation: underline 1s 1s forwards;
         }
-
-        .hero-title .highlight {
-            color: var(--primary-yellow-muted);
-            position: relative;
+        @keyframes underline { to { transform: scaleX(1); } }
+        .hero p { color: rgba(255,255,255,0.9); font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; }
+        .cta-btn {
+            display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px;
+            background: var(--yellow); color: var(--dark); font-weight: 700; border-radius: 50px;
+            text-decoration: none; transition: all 0.3s; box-shadow: 0 10px 40px rgba(255,215,0,0.4);
         }
-
-        .hero-description {
-            font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            margin: 0 auto 40px;
-            animation: fadeInUp 0.8s ease 0.4s both;
+        .cta-btn:hover { transform: translateY(-5px) scale(1.05); }
+        .scroll-down {
+            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+            width: 30px; height: 50px; border: 2px solid rgba(255,255,255,0.5); border-radius: 25px;
         }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--primary-yellow-muted);
-            color: var(--text-dark);
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all var(--transition-normal);
-            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
-            animation: fadeInUp 0.8s ease 0.6s both;
+        .scroll-down::before {
+            content: ''; position: absolute; top: 8px; left: 50%; width: 6px; height: 6px;
+            background: #fff; border-radius: 50%; transform: translateX(-50%);
+            animation: scroll 2s infinite;
         }
+        @keyframes scroll { 0% { top: 8px; opacity: 1; } 100% { top: 32px; opacity: 0; } }
 
-        .hero-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5);
+        /* ===== SECTIONS ===== */
+        .section { padding: 100px 24px; max-width: 1200px; margin: 0 auto; }
+        .section-title {
+            font-size: 2.5rem; text-align: center; margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--red), var(--yellow));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
+        .section-sub { text-align: center; color: var(--gray); margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        .hero-cta svg {
-            width: 20px;
-            height: 20px;
-            transition: transform var(--transition-fast);
-        }
-
-        .hero-cta:hover svg {
-            transform: translateX(4px);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        .scroll-indicator svg {
-            width: 32px;
-            height: 32px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ===== CONTEXT SECTION ===== */
-        .context-section {
-            background: var(--bg-light);
-            position: relative;
-        }
-
-        .context-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-red), var(--primary-yellow-muted), var(--primary-red));
-        }
-
-        .context-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: center;
-        }
-
-        .context-content h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-        }
-
-        .context-content h2 span {
-            color: var(--primary-red);
-        }
-
-        .context-content p {
-            color: var(--text-gray);
-            margin-bottom: 16px;
-            font-size: 1.05rem;
-        }
-
-        .context-highlight {
-            background: linear-gradient(135deg, var(--primary-red-light), rgba(255, 215, 0, 0.1));
-            border-left: 4px solid var(--primary-red);
-            padding: 20px 24px;
-            border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
-            margin-top: 24px;
-        }
-
-        .context-highlight p {
-            margin: 0;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .context-visual {
-            position: relative;
-        }
-
-        .context-card {
-            background: var(--bg-white);
-            border-radius: var(--border-radius-lg);
-            padding: 40px;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .context-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, var(--primary-yellow-soft), transparent);
-            border-radius: 0 0 0 100%;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-
+        /* ===== TIMELINE (Bối cảnh) ===== */
+        .timeline-section { background: linear-gradient(180deg, var(--light) 0%, #fff 100%); padding: 100px 24px; }
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
         .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--primary-red), var(--primary-yellow-muted));
-            border-radius: 3px;
+            content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 4px;
+            background: linear-gradient(to bottom, var(--red), var(--yellow)); transform: translateX(-50%);
         }
-
         .timeline-item {
-            position: relative;
-            padding-bottom: 24px;
+            display: flex; justify-content: flex-end; padding-right: calc(50% + 30px);
+            margin-bottom: 50px; position: relative; opacity: 0; transform: translateX(-50px);
+            transition: all 0.6s;
         }
-
-        .timeline-item:last-child {
-            padding-bottom: 0;
-        }
-
+        .timeline-item:nth-child(even) { justify-content: flex-start; padding-right: 0; padding-left: calc(50% + 30px); transform: translateX(50px); }
+        .timeline-item.visible { opacity: 1; transform: translateX(0); }
         .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -34px;
-            top: 6px;
-            width: 12px;
-            height: 12px;
-            background: var(--primary-red);
-            border-radius: 50%;
-            border: 3px solid var(--bg-white);
-            box-shadow: 0 0 0 3px var(--primary-red-light);
+            content: ''; position: absolute; left: 50%; top: 20px; width: 20px; height: 20px;
+            background: var(--red); border: 4px solid #fff; border-radius: 50%; transform: translateX(-50%);
+            box-shadow: 0 0 0 4px rgba(218,37,28,0.2); z-index: 1;
         }
+        .timeline-content {
+            background: #fff; padding: 24px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 350px; position: relative;
+        }
+        .timeline-content::before {
+            content: ''; position: absolute; top: 20px; width: 0; height: 0;
+            border: 10px solid transparent;
+        }
+        .timeline-item:nth-child(odd) .timeline-content::before { right: -20px; border-left-color: #fff; }
+        .timeline-item:nth-child(even) .timeline-content::before { left: -20px; border-right-color: #fff; }
+        .timeline-year { font-size: 0.9rem; font-weight: 700; color: var(--red); margin-bottom: 8px; }
+        .timeline-text { color: var(--gray); line-height: 1.6; }
 
-        .timeline-year {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--primary-red);
-            margin-bottom: 4px;
+        /* ===== CLASS CARDS (Cơ cấu) ===== */
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card {
+            background: #fff; border-radius: 20px; padding: 40px 30px; text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08); position: relative; overflow: hidden;
+            transition: all 0.4s; cursor: pointer;
         }
+        .card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+            background: linear-gradient(90deg, var(--red), var(--yellow));
+            transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+        }
+        .card:hover { transform: translateY(-15px); box-shadow: 0 30px 80px rgba(218,37,28,0.15); }
+        .card:hover::before { transform: scaleX(1); }
+        .card-icon {
+            width: 90px; height: 90px; margin: 0 auto 20px;
+            background: linear-gradient(135deg, rgba(218,37,28,0.1), rgba(255,215,0,0.1));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 40px; transition: all 0.4s;
+        }
+        .card:hover .card-icon { transform: scale(1.1) rotate(10deg); background: linear-gradient(135deg, var(--red), var(--yellow)); }
+        .card:hover .card-icon span { filter: brightness(0) invert(1); }
+        .card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .card-role { display: inline-block; padding: 6px 16px; background: rgba(218,37,28,0.1); color: var(--red); border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
+        .card p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px; }
+        .card-footer { padding-top: 16px; border-top: 1px dashed #eee; font-size: 0.85rem; color: var(--gray); }
+        .card-footer strong { display: block; color: var(--dark); margin-bottom: 4px; }
 
-        .timeline-text {
-            color: var(--text-gray);
-            font-size: 0.95rem;
+        /* ===== ALLIANCE (Liên minh) - 3D FLIP CARDS ===== */
+        .alliance-section { background: linear-gradient(180deg, #f0f2f5 0%, var(--light) 100%); padding: 100px 24px; }
+        .alliance-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .flip-card { height: 450px; perspective: 1000px; }
+        .flip-card.featured { grid-row: span 1; }
+        .flip-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; }
+        .flip-card:hover .flip-inner { transform: rotateY(180deg); }
+        .flip-front, .flip-back {
+            position: absolute; inset: 0; backface-visibility: hidden; border-radius: 20px;
+            padding: 30px; display: flex; flex-direction: column;
         }
-
-        /* ===== CLASS STRUCTURE SECTION ===== */
-        .class-section {
-            background: var(--bg-white);
-        }
-
-        .class-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-
-        .class-card {
-            background: var(--bg-white);
-            border-radius: var(--border-radius-lg);
-            padding: 32px 24px;
-            text-align: center;
-            border: 1px solid var(--border-color);
-            transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .class-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-red), var(--primary-yellow-muted));
-            transform: scaleX(0);
-            transition: transform var(--transition-normal);
-        }
-
-        .class-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: transparent;
-        }
-
-        .class-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .class-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, var(--primary-red-light), var(--primary-yellow-soft));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all var(--transition-normal);
-        }
-
-        .class-card:hover .class-icon {
-            transform: scale(1.1) rotate(5deg);
-            background: linear-gradient(135deg, var(--primary-red), var(--primary-yellow-muted));
-        }
-
-        .class-icon svg {
-            width: 40px;
-            height: 40px;
-            color: var(--primary-red);
-            transition: color var(--transition-normal);
-        }
-
-        .class-card:hover .class-icon svg {
-            color: var(--bg-white);
-        }
-
-        .class-name {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 12px;
-        }
-
-        .class-role {
-            font-size: 0.9rem;
-            color: var(--primary-red);
-            font-weight: 600;
-            margin-bottom: 16px;
-            padding: 6px 12px;
-            background: var(--primary-red-light);
-            border-radius: 20px;
-            display: inline-block;
-        }
-
-        .class-description {
-            font-size: 0.95rem;
-            color: var(--text-gray);
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-
-        .class-status {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            padding-top: 16px;
-            border-top: 1px dashed var(--border-color);
-        }
-
-        .class-status strong {
-            color: var(--text-dark);
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        /* ===== ALLIANCE SECTION ===== */
-        .alliance-section {
-            background: linear-gradient(180deg, var(--bg-gray) 0%, var(--bg-light) 100%);
-        }
-
-        .alliance-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 48px;
-            padding: 24px;
-            background: var(--bg-white);
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .alliance-intro p {
-            color: var(--text-gray);
-            font-size: 1.05rem;
-        }
-
-        .alliance-grid {
-            display: flex;
-            gap: 24px;
-            align-items: stretch;
-        }
-
-        .alliance-card {
-            flex: 1;
-            background: var(--bg-white);
-            border-radius: var(--border-radius-lg);
-            padding: 32px;
-            transition: all var(--transition-normal);
-            position: relative;
-            border: 2px solid transparent;
-        }
-
-        .alliance-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .alliance-card.featured {
-            flex: 1.3;
-            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
-            color: var(--bg-white);
-            box-shadow: var(--shadow-color);
-        }
-
-        .alliance-card.featured .alliance-card-title,
-        .alliance-card.featured .alliance-card-content {
-            color: var(--bg-white);
-        }
-
-        .alliance-card.featured .alliance-card-content {
-            opacity: 0.95;
-        }
-
-        .alliance-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 6px 12px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-        }
-
-        .alliance-card:not(.featured) .alliance-badge {
-            background: var(--primary-red-light);
-            color: var(--primary-red);
-        }
-
-        .alliance-card.featured .alliance-badge {
-            background: rgba(255, 215, 0, 0.2);
-            color: var(--primary-yellow-muted);
-        }
-
-        .alliance-card-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: var(--border-radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .alliance-card:not(.featured) .alliance-card-icon {
-            background: linear-gradient(135deg, var(--primary-red-light), var(--primary-yellow-soft));
-        }
-
-        .alliance-card.featured .alliance-card-icon {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .alliance-card-icon svg {
-            width: 28px;
-            height: 28px;
-        }
-
-        .alliance-card:not(.featured) .alliance-card-icon svg {
-            color: var(--primary-red);
-        }
-
-        .alliance-card.featured .alliance-card-icon svg {
-            color: var(--primary-yellow-muted);
-        }
-
-        .alliance-card-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text-dark);
-        }
-
-        .alliance-card-content {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .alliance-card-content p {
-            margin-bottom: 12px;
-        }
-
-        .alliance-card-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .alliance-list {
-            list-style: none;
-            margin-top: 16px;
-        }
-
-        .alliance-list li {
-            position: relative;
-            padding-left: 24px;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-
-        .alliance-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-        }
-
-        .alliance-card:not(.featured) .alliance-list li::before {
-            color: var(--primary-red);
-        }
-
-        .alliance-card.featured .alliance-list li::before {
-            color: var(--primary-yellow-muted);
-        }
+        .flip-front { background: #fff; box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
+        .flip-back { background: linear-gradient(135deg, var(--red), #8B0000); color: #fff; transform: rotateY(180deg); justify-content: center; }
+        .flip-card.featured .flip-front { background: linear-gradient(135deg, var(--red), #8B0000); color: #fff; }
+        .flip-card.featured .flip-back { background: #fff; color: var(--dark); }
+        .flip-badge { display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 16px; width: fit-content; }
+        .flip-front .flip-badge { background: rgba(218,37,28,0.1); color: var(--red); }
+        .flip-card.featured .flip-front .flip-badge { background: rgba(255,215,0,0.2); color: var(--yellow); }
+        .flip-icon { font-size: 48px; margin-bottom: 20px; }
+        .flip-front h3 { font-size: 1.4rem; margin-bottom: 16px; }
+        .flip-front p { color: var(--gray); line-height: 1.6; flex: 1; }
+        .flip-card.featured .flip-front p { color: rgba(255,255,255,0.9); }
+        .flip-back h4 { font-size: 1.2rem; margin-bottom: 16px; }
+        .flip-back ul { list-style: none; }
+        .flip-back li { padding: 8px 0; padding-left: 24px; position: relative; }
+        .flip-back li::before { content: '✓'; position: absolute; left: 0; color: var(--yellow); font-weight: 700; }
+        .flip-card.featured .flip-back li::before { color: var(--red); }
+        .flip-hint { margin-top: auto; font-size: 0.85rem; opacity: 0.7; text-align: center; }
 
         /* ===== FOOTER ===== */
-        .footer {
-            background: var(--text-dark);
-            color: var(--bg-white);
-            padding: 48px 0 24px;
+        footer {
+            background: var(--dark); color: #fff; padding: 60px 24px 30px; text-align: center;
             position: relative;
         }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-red), var(--primary-yellow-muted), var(--primary-red));
-        }
-
-        .footer-content {
-            text-align: center;
-        }
-
-        .footer-quote {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            margin: 0 auto 24px;
-            position: relative;
-            padding: 0 40px;
-        }
-
-        .footer-quote::before,
-        .footer-quote::after {
-            content: '"';
-            font-size: 3rem;
-            color: var(--primary-yellow-muted);
-            position: absolute;
-            font-family: Georgia, serif;
-            opacity: 0.5;
-        }
-
-        .footer-quote::before {
-            left: 0;
-            top: -10px;
-        }
-
-        .footer-quote::after {
-            right: 0;
-            bottom: -30px;
-        }
-
-        .footer-divider {
-            width: 60px;
-            height: 3px;
-            background: var(--primary-yellow-muted);
-            margin: 32px auto;
-            border-radius: 3px;
-        }
-
-        .footer-copyright {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .footer-copyright a {
-            color: var(--primary-yellow-muted);
-            transition: color var(--transition-fast);
-        }
-
-        .footer-copyright a:hover {
-            color: var(--primary-yellow);
-        }
+        footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--red), var(--yellow), var(--red)); }
+        .footer-quote { font-size: 1.1rem; font-style: italic; max-width: 700px; margin: 0 auto 30px; opacity: 0.9; }
+        .footer-divider { width: 60px; height: 3px; background: var(--yellow); margin: 0 auto 30px; border-radius: 3px; }
+        .footer-copy { font-size: 0.9rem; opacity: 0.6; }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 1024px) {
-            .class-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .alliance-grid {
-                flex-direction: column;
-            }
-
-            .alliance-card.featured {
-                order: -1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .section {
-                padding: 60px 0;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .hero-title {
-                font-size: 1.8rem;
-            }
-
-            .hero-description {
-                font-size: 1rem;
-            }
-
-            .context-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .context-visual {
-                order: -1;
-            }
-
-            .class-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .class-card {
-                max-width: 400px;
-                margin: 0 auto;
-            }
-
-            .footer-quote {
-                font-size: 1rem;
-                padding: 0 20px;
-            }
-        }
-
-        /* ===== ANIMATIONS ON SCROLL ===== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @media (max-width: 900px) {
+            .alliance-grid { grid-template-columns: 1fr; }
+            .flip-card { height: 400px; }
+            .timeline::before { left: 20px; }
+            .timeline-item, .timeline-item:nth-child(even) { padding-left: 60px; padding-right: 0; justify-content: flex-start; }
+            .timeline-item::before { left: 20px; }
+            .timeline-item .timeline-content::before, .timeline-item:nth-child(even) .timeline-content::before { left: -20px; border-right-color: #fff; border-left-color: transparent; }
         }
     </style>
 </head>
 <body>
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <header class="hero">
-        <div class="hero-pattern"></div>
+        <div class="particles" id="particles"></div>
         <div class="hero-content">
-            <div class="hero-badge">Chủ nghĩa xã hội khoa học</div>
-            <h1 class="hero-title">
-                Cơ cấu xã hội & <span class="highlight">Liên minh giai cấp</span><br>
-                trong thời kỳ quá độ lên CNXH ở Việt Nam
-            </h1>
-            <p class="hero-description">
-                Tìm hiểu về sự biến đổi cơ cấu xã hội - giai cấp và vai trò của liên minh công nhân - nông dân - trí thức trong công cuộc xây dựng chủ nghĩa xã hội tại Việt Nam.
-            </p>
-            <a href="#context" class="hero-cta">
-                Khám phá ngay
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-            </a>
+            <div class="hero-badge">★ Chủ nghĩa xã hội khoa học</div>
+            <h1>Cơ cấu xã hội & <span>Liên minh giai cấp</span><br>trong thời kỳ quá độ lên CNXH</h1>
+            <p>Khám phá sự biến đổi cơ cấu xã hội - giai cấp và vai trò của liên minh công - nông - trí thức trong công cuộc xây dựng chủ nghĩa xã hội tại Việt Nam.</p>
+            <a href="#timeline" class="cta-btn">Bắt đầu khám phá →</a>
         </div>
-        <div class="scroll-indicator">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-        </div>
+        <div class="scroll-down"></div>
     </header>
 
-    <!-- CONTEXT SECTION -->
-    <section id="context" class="section context-section">
-        <div class="container">
-            <div class="context-grid">
-                <div class="context-content fade-in">
-                    <h2>Bối cảnh <span>Lịch sử</span></h2>
-                    <p>
-                        Sau thắng lợi của cách mạng dân tộc dân chủ nhân dân và thống nhất đất nước, Việt Nam bước vào thời kỳ quá độ lên chủ nghĩa xã hội. Trong thời kỳ này, cơ cấu xã hội – giai cấp có sự biến đổi mạnh mẽ, vừa tuân theo quy luật chung của sự phát triển xã hội, vừa mang đặc thù của Việt Nam.
-                    </p>
-                    <p>
-                        Từ Đại hội VI (1986), quá trình đổi mới và chuyển sang nền kinh tế thị trường định hướng xã hội chủ nghĩa đã làm thay đổi sâu sắc cơ cấu kinh tế, kéo theo sự biến đổi đa dạng và phức tạp của cơ cấu xã hội – giai cấp.
-                    </p>
-                    <div class="context-highlight">
-                        <p>
-                            Cơ cấu xã hội không còn đơn giản như trước mà trở nên đa dạng hơn, có sự phân hóa trong nội bộ các giai cấp, chuyển hóa lẫn nhau giữa các tầng lớp và xuất hiện những tầng lớp xã hội mới.
-                        </p>
-                    </div>
-                </div>
-                <div class="context-visual fade-in">
-                    <div class="context-card">
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-year">1975</div>
-                                <div class="timeline-text">Thống nhất đất nước, bước vào thời kỳ quá độ lên CNXH</div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-year">1986</div>
-                                <div class="timeline-text">Đại hội VI - Khởi đầu công cuộc Đổi mới toàn diện</div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-year">2021</div>
-                                <div class="timeline-text">Đại hội XIII - Xây dựng đội ngũ doanh nhân lớn mạnh</div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-year">Hiện nay</div>
-                                <div class="timeline-text">Phát triển kinh tế tri thức, đón đầu Cách mạng công nghiệp 4.0</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- TIMELINE -->
+    <section id="timeline" class="timeline-section">
+        <h2 class="section-title">Bối cảnh Lịch sử</h2>
+        <p class="section-sub">Hành trình đổi mới và phát triển của Việt Nam từ sau 1975</p>
+        <div class="timeline">
+            <div class="timeline-item"><div class="timeline-content"><div class="timeline-year">1975</div><div class="timeline-text">Thống nhất đất nước, bước vào thời kỳ quá độ lên chủ nghĩa xã hội</div></div></div>
+            <div class="timeline-item"><div class="timeline-content"><div class="timeline-year">1986</div><div class="timeline-text">Đại hội VI - Khởi đầu công cuộc Đổi mới, chuyển sang kinh tế thị trường định hướng XHCN</div></div></div>
+            <div class="timeline-item"><div class="timeline-content"><div class="timeline-year">2021</div><div class="timeline-text">Đại hội XIII - Xây dựng đội ngũ doanh nhân lớn mạnh, có năng lực và đạo đức</div></div></div>
+            <div class="timeline-item"><div class="timeline-content"><div class="timeline-year">Hiện nay</div><div class="timeline-text">Phát triển kinh tế tri thức, đón đầu Cách mạng công nghiệp 4.0</div></div></div>
+        </div>
+    </section>
+
+    <!-- CLASS STRUCTURE -->
+    <section class="section">
+        <h2 class="section-title">Cơ cấu Xã hội - Giai cấp</h2>
+        <p class="section-sub">Những giai cấp, tầng lớp chính trong thời kỳ quá độ lên CNXH</p>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon"><span>⚙️</span></div>
+                <h3>Giai cấp Công nhân</h3>
+                <span class="card-role">Lực lượng lãnh đạo</span>
+                <p>Giữ vai trò lãnh đạo cách mạng thông qua Đảng CSVN, tiên phong trong xây dựng CNXH, đi đầu CNH-HĐH đất nước.</p>
+                <div class="card-footer"><strong>Biến đổi:</strong>Xuất hiện công nhân hiện đại, công nhân trí thức. Còn phân hóa giàu - nghèo trong nội bộ.</div>
+            </div>
+            <div class="card">
+                <div class="card-icon"><span>🌾</span></div>
+                <h3>Giai cấp Nông dân</h3>
+                <span class="card-role">Vị trí chiến lược</span>
+                <p>Giữ vị trí chiến lược trong CNH-HĐH nông nghiệp, nông thôn; góp phần phát triển kinh tế - xã hội bền vững.</p>
+                <div class="card-footer"><strong>Biến đổi:</strong>Giảm về số lượng, một bộ phận chuyển sang công nhân, dịch vụ. Xuất hiện chủ trang trại lớn.</div>
+            </div>
+            <div class="card">
+                <div class="card-icon"><span>📚</span></div>
+                <h3>Đội ngũ Trí thức</h3>
+                <span class="card-role">Lao động sáng tạo</span>
+                <p>Lực lượng lao động sáng tạo đặc biệt quan trọng trong CNH-HĐH, hội nhập quốc tế và phát triển kinh tế tri thức.</p>
+                <div class="card-footer"><strong>Vai trò:</strong>Nâng cao trí tuệ dân tộc, năng lực lãnh đạo của Đảng trong CMCN 4.0.</div>
+            </div>
+            <div class="card">
+                <div class="card-icon"><span>💼</span></div>
+                <h3>Đội ngũ Doanh nhân</h3>
+                <span class="card-role">Tầng lớp đặc biệt</span>
+                <p>Phát triển nhanh về số lượng và quy mô, đóng góp tích cực vào tăng trưởng kinh tế, giải quyết việc làm.</p>
+                <div class="card-footer"><strong>Đại hội XIII:</strong>Xây dựng đội ngũ có năng lực, đạo đức, văn hóa và trình độ quản trị giỏi.</div>
             </div>
         </div>
     </section>
 
-    <!-- CLASS STRUCTURE SECTION -->
-    <section class="section class-section">
-        <div class="container">
-            <h2 class="section-title fade-in">Cơ cấu <span>Xã hội - Giai cấp</span></h2>
-            <p class="section-subtitle fade-in">
-                Những giai cấp, tầng lớp chính trong thời kỳ quá độ lên chủ nghĩa xã hội ở Việt Nam
-            </p>
-            <div class="class-grid">
-                <!-- Công nhân -->
-                <div class="class-card fade-in">
-                    <div class="class-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
+    <!-- ALLIANCE -->
+    <section class="alliance-section">
+        <h2 class="section-title">Liên minh Giai cấp, Tầng lớp</h2>
+        <p class="section-sub">Hover vào thẻ để xem chi tiết nội dung liên minh</p>
+        <div class="alliance-grid">
+            <div class="flip-card">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <div class="flip-badge">Nội dung 1</div>
+                        <div class="flip-icon">🏛️</div>
+                        <h3>Nội dung Chính trị</h3>
+                        <p>Tạo nền tảng chính trị - xã hội vững chắc cho khối đại đoàn kết toàn dân, phát huy sức mạnh tổng hợp.</p>
+                        <div class="flip-hint">↻ Hover để xem chi tiết</div>
                     </div>
-                    <h3 class="class-name">Giai cấp Công nhân</h3>
-                    <span class="class-role">Lực lượng lãnh đạo</span>
-                    <p class="class-description">
-                        Giữ vai trò lãnh đạo cách mạng thông qua Đảng Cộng sản Việt Nam, là lực lượng tiên phong trong xây dựng CNXH, đi đầu trong công nghiệp hóa, hiện đại hóa đất nước.
-                    </p>
-                    <div class="class-status">
-                        <strong>Biến đổi:</strong>
-                        Phát triển nhanh về số lượng, chất lượng; xuất hiện công nhân hiện đại, công nhân trí thức. Tuy nhiên, còn phân hóa giàu - nghèo trong nội bộ.
-                    </div>
-                </div>
-
-                <!-- Nông dân -->
-                <div class="class-card fade-in">
-                    <div class="class-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <h3 class="class-name">Giai cấp Nông dân</h3>
-                    <span class="class-role">Vị trí chiến lược</span>
-                    <p class="class-description">
-                        Giữ vị trí chiến lược trong CNH-HĐH nông nghiệp, nông thôn; góp phần phát triển kinh tế - xã hội bền vững, giữ vững ổn định chính trị, gìn giữ bản sắc văn hóa.
-                    </p>
-                    <div class="class-status">
-                        <strong>Biến đổi:</strong>
-                        Có xu hướng giảm về số lượng, một bộ phận chuyển sang làm công nhân, dịch vụ. Xuất hiện chủ trang trại lớn song vẫn còn nông dân mất đất.
-                    </div>
-                </div>
-
-                <!-- Trí thức -->
-                <div class="class-card fade-in">
-                    <div class="class-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
-                    </div>
-                    <h3 class="class-name">Đội ngũ Trí thức</h3>
-                    <span class="class-role">Lao động sáng tạo</span>
-                    <p class="class-description">
-                        Là lực lượng lao động sáng tạo đặc biệt quan trọng trong CNH-HĐH, hội nhập quốc tế và phát triển kinh tế tri thức, góp phần xây dựng nền văn hóa Việt Nam tiên tiến.
-                    </p>
-                    <div class="class-status">
-                        <strong>Vai trò:</strong>
-                        Nâng cao trí tuệ dân tộc, sức mạnh đất nước, năng lực lãnh đạo của Đảng trong bối cảnh Cách mạng công nghiệp 4.0 phát triển mạnh.
-                    </div>
-                </div>
-
-                <!-- Doanh nhân -->
-                <div class="class-card fade-in">
-                    <div class="class-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h3 class="class-name">Đội ngũ Doanh nhân</h3>
-                    <span class="class-role">Tầng lớp đặc biệt</span>
-                    <p class="class-description">
-                        Phát triển nhanh về số lượng và quy mô, giữ vai trò ngày càng quan trọng trong phát triển kinh tế - xã hội, đóng góp tích cực vào tăng trưởng kinh tế.
-                    </p>
-                    <div class="class-status">
-                        <strong>Định hướng (Đại hội XIII):</strong>
-                        Xây dựng đội ngũ doanh nhân có năng lực, đạo đức, văn hóa, uy tín và trình độ quản trị giỏi để nâng cao sức cạnh tranh quốc gia.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ALLIANCE SECTION -->
-    <section class="section alliance-section">
-        <div class="container">
-            <h2 class="section-title fade-in">Liên minh <span>Giai cấp, Tầng lớp</span></h2>
-            <p class="section-subtitle fade-in">
-                Ba nội dung cơ bản của liên minh công nhân - nông dân - trí thức trong thời kỳ quá độ
-            </p>
-            <div class="alliance-intro fade-in">
-                <p>
-                    Trong thời kỳ quá độ lên chủ nghĩa xã hội, việc tổ chức khối liên minh vững mạnh có ý nghĩa đặc biệt quan trọng để thực hiện những nội dung cơ bản của liên minh, tạo nền tảng vững chắc cho công cuộc xây dựng và bảo vệ Tổ quốc.
-                </p>
-            </div>
-            <div class="alliance-grid">
-                <!-- Chính trị -->
-                <div class="alliance-card fade-in">
-                    <div class="alliance-badge">Nội dung 2</div>
-                    <div class="alliance-card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
-                        </svg>
-                    </div>
-                    <h3 class="alliance-card-title">Nội dung Chính trị</h3>
-                    <div class="alliance-card-content">
-                        <p>
-                            Tạo nền tảng chính trị - xã hội vững chắc cho khối đại đoàn kết toàn dân, phát huy sức mạnh tổng hợp trong xây dựng và bảo vệ Tổ quốc XHCN.
-                        </p>
-                        <ul class="alliance-list">
+                    <div class="flip-back">
+                        <h4>Nội dung chi tiết:</h4>
+                        <ul>
                             <li>Giữ vững lập trường tư tưởng giai cấp công nhân</li>
                             <li>Bảo đảm vai trò lãnh đạo của Đảng CSVN</li>
                             <li>Xây dựng Nhà nước pháp quyền XHCN</li>
@@ -989,46 +270,39 @@
                         </ul>
                     </div>
                 </div>
-
-                <!-- Kinh tế (Featured) -->
-                <div class="alliance-card featured fade-in">
-                    <div class="alliance-badge">★ Quyết định nhất</div>
-                    <div class="alliance-card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                        </svg>
+            </div>
+            <div class="flip-card featured">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <div class="flip-badge">★ Quyết định nhất</div>
+                        <div class="flip-icon">📈</div>
+                        <h3>Nội dung Kinh tế</h3>
+                        <p><strong>Nội dung cơ bản và quyết định nhất</strong> của liên minh, tạo cơ sở vật chất - kỹ thuật cho CNXH. Theo V.I. Lênin, trọng tâm chuyển sang lĩnh vực kinh tế.</p>
+                        <div class="flip-hint">↻ Hover để xem chi tiết</div>
                     </div>
-                    <h3 class="alliance-card-title">Nội dung Kinh tế</h3>
-                    <div class="alliance-card-content">
-                        <p>
-                            <strong>Nội dung cơ bản và quyết định nhất</strong> của liên minh giai cấp, tạo cơ sở vật chất - kỹ thuật cho CNXH trong thời kỳ quá độ.
-                        </p>
-                        <p>
-                            Theo V.I. Lênin, trọng tâm của thời kỳ này chuyển sang lĩnh vực kinh tế, nhằm đáp ứng lợi ích kinh tế thiết thân của công nhân, nông dân, trí thức và các tầng lớp xã hội.
-                        </p>
-                        <ul class="alliance-list">
-                            <li>Hợp tác công nhân - nông dân - trí thức, mở rộng liên kết với doanh nhân</li>
+                    <div class="flip-back">
+                        <h4>Nội dung chi tiết:</h4>
+                        <ul>
+                            <li>Hợp tác công - nông - trí, mở rộng liên kết với doanh nhân</li>
                             <li>Phát triển kinh tế nhanh, bền vững</li>
                             <li>Đẩy mạnh CNH-HĐH, phát triển kinh tế tri thức</li>
                             <li>Xây dựng nền kinh tế độc lập, tự chủ</li>
                         </ul>
                     </div>
                 </div>
-
-                <!-- Văn hóa - Xã hội -->
-                <div class="alliance-card fade-in">
-                    <div class="alliance-badge">Nội dung 3</div>
-                    <div class="alliance-card-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
+            </div>
+            <div class="flip-card">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <div class="flip-badge">Nội dung 3</div>
+                        <div class="flip-icon">🤝</div>
+                        <h3>Nội dung Văn hóa - Xã hội</h3>
+                        <p>Xây dựng nền văn hóa Việt Nam tiên tiến, đậm đà bản sắc dân tộc, tiếp thu tinh hoa văn hóa nhân loại.</p>
+                        <div class="flip-hint">↻ Hover để xem chi tiết</div>
                     </div>
-                    <h3 class="alliance-card-title">Nội dung Văn hóa - Xã hội</h3>
-                    <div class="alliance-card-content">
-                        <p>
-                            Xây dựng nền văn hóa Việt Nam tiên tiến, đậm đà bản sắc dân tộc, tiếp thu tinh hoa văn hóa nhân loại dưới sự lãnh đạo của Đảng.
-                        </p>
-                        <ul class="alliance-list">
+                    <div class="flip-back">
+                        <h4>Nội dung chi tiết:</h4>
+                        <ul>
                             <li>Gắn tăng trưởng kinh tế với phát triển văn hóa, con người</li>
                             <li>Nâng cao chất lượng nguồn nhân lực</li>
                             <li>Xóa đói giảm nghèo, an sinh xã hội</li>
@@ -1041,59 +315,31 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p class="footer-quote">
-                    Những biến đổi này tác động tích cực trở lại nền kinh tế, góp phần thúc đẩy sự phát triển năng động, đa dạng, trở thành động lực quan trọng của công cuộc đổi mới và xây dựng chủ nghĩa xã hội.
-                </p>
-                <div class="footer-divider"></div>
-                <p class="footer-copyright">
-                    © 2026 | Học phần: <strong>MLN131</strong> - Chủ nghĩa xã hội khoa học<br>
-                    Nguồn tài liệu: Giáo trình chính thống
-                </p>
-            </div>
-        </div>
+    <footer>
+        <p class="footer-quote">"Những biến đổi này tác động tích cực trở lại nền kinh tế, góp phần thúc đẩy sự phát triển năng động, trở thành động lực quan trọng của công cuộc đổi mới."</p>
+        <div class="footer-divider"></div>
+        <p class="footer-copy">© 2026 | MLN131 - Chủ nghĩa xã hội khoa học</p>
     </footer>
 
     <script>
-        // Scroll Animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            fadeElements.forEach(element => {
-                observer.observe(element);
-            });
-
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        });
+        // Create particles
+        const container = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.width = p.style.height = (Math.random() * 10 + 5) + 'px';
+            p.style.animationDelay = Math.random() * 15 + 's';
+            p.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            container.appendChild(p);
+        }
+        // Timeline animation
+        const items = document.querySelectorAll('.timeline-item');
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.2 });
+        items.forEach(i => obs.observe(i));
     </script>
 </body>
 </html>
