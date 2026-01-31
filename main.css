@@ -1,0 +1,148 @@
+.doc-section .section-header {
+  margin-bottom: 48px;
+}
+
+.doc-section .section-index {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.doc-section .section-title {
+  font-size: 32px;
+  margin: 8px 0 12px;
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+
+.doc-section .section-subtitle {
+  color: var(--text-sub);
+  max-width: 600px;
+}
+
+/* ===== Content ===== */
+.doc-section .content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.doc-section .topic h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.doc-section .topic p {
+  margin: 0 0 12px;
+}
+
+.doc-section .topic ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.doc-section .topic ul li {
+  margin-bottom: 6px;
+}
+
+/* Highlight block */
+.doc-section .topic.highlight {
+  border-left: 3px solid var(--accent);
+  padding-left: 20px;
+}
+
+.doc-section .quote {
+  margin-top: 16px;
+  font-style: italic;
+  color: var(--text-sub);
+}
+
+/* ===== Footer ===== */
+.doc-section .section-footer {
+  margin-top: 56px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.doc-section .section-footer button {
+  background: none;
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.doc-section .section-footer button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+
+.examples {
+  margin-top: 40px;
+}
+
+.examples .examples-header {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.examples .examples-title {
+  font-size: 32px;
+  margin-bottom: 12px;
+
+}
+
+.examples-subtitle {
+  color: var(--text-sub);
+  max-width: 600px;
+  
+}
+
+.example-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding-left: 32px;
+  border-left: 2px solid var(--border);
+}
+
+.example-item {
+  position: relative;
+}
+
+.example-item::before {
+  content: "";
+  position: absolute;
+  left: -41px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.example-title {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.example-meta {
+  font-size: 13px;
+  color: var(--text-sub);
+  margin-bottom: 8px;
+}
+
+.example-desc {
+  margin: 0;
+}
+
+.example-impact {
+  margin-top: 10px;
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
+  font-size: 14px;
+  color: var(--text-sub);
+}
